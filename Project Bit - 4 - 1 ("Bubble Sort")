@@ -1,0 +1,44 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+void sort(int arr0[], int size0)
+{
+	int i = 0;
+	for (i = 0; i < size0 - 1; i++)
+	{
+		int j = 0;
+		for (j = 0; j < size0 - 1 - i; j++)
+		{
+			if (arr0[j] > arr0[j + 1])
+			{
+				int n = 0;
+				n = arr0[j];
+				arr0[j] = arr0[j + 1];
+				arr0[j + 1] = n;
+			}
+		}
+	}
+}
+
+void print(int arr1[],int size1)
+{
+	int x = 0;
+	for (x = 0; x < size1; x++)
+	{
+		printf("%d ", arr1[x]);
+	}
+}
+
+int main()
+{
+	int arr[10] = { 9,8,7,6,5,4,3,2,1,0 };
+	int size = sizeof(arr) / sizeof(arr[0]);
+	printf("The original array is : ");
+	print(arr, size);
+	printf("\n");
+	sort(arr, size);
+	printf("The modified array is : ");
+	print(arr, size);
+	printf("\n");
+	return 0;
+}
