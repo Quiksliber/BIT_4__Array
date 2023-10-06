@@ -1,17 +1,19 @@
 #pragma once
 
-//Inclusion of header files
+//头文件的包含
 #include <stdio.h>
 #include <Windows.h>
 #include <stdlib.h>
 #include <time.h>
 
-//Definition of symbols
+//符号的定义
 #define ROW 3
 #define COL 3
 
-//Declaration of functions contained in the game
-void menu();
-void main_game();
-void board_initialization(char board[ROW][COL], int row, int col);
-void board_printing(char board[ROW][COL], int row, int col);
+//游戏所含的函数的声明
+void menu();//目录菜单
+void main_game();//主游戏
+void board_initialization(char board[ROW][COL], int row, int col);//板面初始化
+void board_printing(char board[ROW][COL], int row, int col);//板面打印
+char win(char board[ROW][COL], int row, int col);//胜负判断
+void winner_printing(char outcome);
