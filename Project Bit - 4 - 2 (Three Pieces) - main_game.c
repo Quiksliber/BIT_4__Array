@@ -2,8 +2,10 @@
 
 #include "game.h"
 
+//Game board creation
 char board[ROW][COL];
 
+//Players playing chess
 void player_moving()
 {
 	int x = 0;
@@ -11,7 +13,7 @@ void player_moving()
 	printf("Now it's your turn to play chess.");
 	while (1)
 	{
-		printf("Please enter your placement position :");
+		printf("Please enter your placement position : ");
 		scanf("%d %d", &x, &y);
 
 		//legality judgment
@@ -35,6 +37,7 @@ void player_moving()
 	}
 }
 
+//Computers play chess.
 void system_moving()
 {
 	printf("The computer is currently playing chess.\n");
@@ -61,11 +64,27 @@ void main_game()
 	//Formal game operation
 	while (1)
 	{
+		//player round
 		player_moving();
 		system("cls");
 		board_printing(board, ROW, COL);
+		char outcome = win(board, ROW, COL);
+		if (outcome != 'C')
+		{
+			winner_printing(outcome);
+			board_printing(board, ROW, COL);
+			break;
+		}
+
+		//computer round
 		system_moving();
 		board_printing(board, ROW, COL);
+		outcome = win(board, ROW, COL);
+		if (outcome != 'C')
+		{
+			winner_printing(outcome);
+			board_printing(board, ROW, COL);
+			break;
+		}
 	}
-	
 }
